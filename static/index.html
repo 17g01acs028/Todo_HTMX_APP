@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+<body hx-boost="true">
+    <div id="myDIV" class="header" >
+        <form>
+            <h2 style="margin:5px">My To Do List</h2>
+            <input type="text" name="title" id="todo" placeholder="Title...">
+            <buttom hx-post="/todo" type="submit" hx-include="[name='title']" hx-target="#myUL" hx-swap="beforeend" class="addBtn">Add</button>
+        </form>
+    </div>
+  
+  <ul id="myUL">
+   {{ range . }}
+   <li id="todo-{{.ID}}">{{.Title}} <button  class="deletebtn" hx-delete="/todos/delete/{{.ID}}" hx-target="#todo-{{.ID}}" hx-swap="outerHTML" hx-confirm="Are you sure you want to delete this TODO?">Delete</button></li>
+   {{ end }}
+  </ul>
+  
+</body>
+</html>
