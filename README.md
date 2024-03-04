@@ -4,7 +4,7 @@ Welcome to the HTMX Todo App with Golang! This simple Todo application demonstra
 
 ## Features
 
-- Add and delete tasks dynamically without page reloads
+- Add , View, Update and delete tasks dynamically without page reloads
 - Simple and intuitive user interface
 - Lightweight and easy to set up
 
