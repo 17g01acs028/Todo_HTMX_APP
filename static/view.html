@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+<body hx-boost="true">
+    <div id="myDIV" class="header" >
+        <button class="w3-button w3-white w3-border w3-border-red w3-round-large" hx-get="/" hx-target="body" hx-swap="innerHTMl" hx-push-url="true">&larr; Back</button>
+        {{ range . }}
+        <form>
+            <h2 style="margin:5px">To do List ID : {{.ID}}</h2>
+            <h5 style="margin:5px">Title: {{.Title}}</h5>
+        </form>
+        {{end}}
+    </div>
+  
+</body>
+</html>

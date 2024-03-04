@@ -64,24 +64,6 @@ body {
     height: 15px;
     width: 7px;
   }
-  ul li .deletebtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    border: none;
-    cursor: pointer;
-    width: 200px;
-    opacity: 0.9;
-  }
-  
-  button:hover {
-    opacity:1;
-  }
-  
-  
-  ul li .deletebtn {
-    background-color: #f44336;
-  }
   
  
   /* Style the close button */

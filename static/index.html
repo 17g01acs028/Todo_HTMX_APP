@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 <body hx-boost="true">
     <div id="myDIV" class="header" >
@@ -18,7 +19,14 @@
   
   <ul id="myUL">
    {{ range . }}
-   <li id="todo-{{.ID}}">{{.Title}} <button  class="deletebtn" hx-delete="/todos/delete/{{.ID}}" hx-target="#todo-{{.ID}}" hx-swap="outerHTML" hx-confirm="Are you sure you want to delete this TODO?">Delete</button></li>
+   <li id="todo-{{.ID}}">
+    <p>{{.Title}} </p>
+    <div class="w3-bar" style="width:fit-content;">
+      <button class="w3-bar-item w3-button w3-black" hx-get="/todos/view/{{.ID}}" hx-target="body" hx-swap="innerHTML" hx-push-url="/todos/view/{{.ID}}">View</button>
+      <button class="w3-bar-item w3-button w3-teal" hx-get="/todos/update/view/{{.ID}}" hx-target="body" hx-swap="innerHTML" hx-push-url="/todos/update/view/{{.ID}}">Edit</button>
+      <button class="w3-bar-item w3-button w3-red" hx-delete="/todos/delete/{{.ID}}" hx-target="#todo-{{.ID}}" hx-swap="outerHTML" hx-confirm="Are you sure you want to delete this TODO?">Delete</button>
+    </div>
+  </li>
    {{ end }}
   </ul>
   

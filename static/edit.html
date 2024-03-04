@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+<body hx-boost="true">
+    <div id="myDIV" class="header" >
+        {{ range . }}
+        <form>
+            <h2 style="margin:5px">Update My To Do List</h2>
+            <input type="text" name="title" id="todo" value="{{.Title}}" placeholder="Title...">
+            <buttom hx-put="/todos/update/{{.ID}}" type="submit" hx-include="[name='title']" hx-target="body" hx-swap="body" hx-push-url="/" class="addBtn">Update</button>
+        </form>
+        {{end}}
+    </div>
+  
+</body>
+</html>
